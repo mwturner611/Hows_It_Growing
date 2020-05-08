@@ -1,0 +1,26 @@
+{
+  "name": "hows_it_growing",
+  "version": "1.0.0",
+  "description": "This app allows you to give your plants the TLC they deserve (and not die)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwturner611/Hows_It_Growing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwturner611/Hows_It_Growing/issues"
+  },
+  "homepage": "https://github.com/mwturner611/Hows_It_Growing#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.7"
+  }
+}
