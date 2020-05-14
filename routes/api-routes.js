@@ -6,7 +6,7 @@
 // =============================================================
 
 // Requiring our models
-var db = require("../models");
+var db = require('../models');
 
 // Routes
 // =============================================================
@@ -20,5 +20,16 @@ module.exports = function(app) {
     //   // We have access to the todos as an argument inside of the callback function
     //   res.json(dbTodo);
     // });
+  });
+
+  // ----------Testing route for creating new user.------------ (works through postman)
+  app.post('/api/users', function(req, res) {
+    db.user.create({
+      emailAddress: req.body.email,
+      password: req.body.password
+    })
+    .then(function() {
+      res.json('new user created');
+    })
   });
 };
