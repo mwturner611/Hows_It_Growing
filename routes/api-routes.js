@@ -12,6 +12,25 @@ var db = require('../models');
 // =============================================================
 module.exports = function(app) {
 
+  // get a user and plants from DB
+  app.get("/api/plants/:user", function(req,res){
+    db.user.findOne({
+      where: {
+        id: req.params.user
+      },
+      include: [db.plant]
+    })
+    .then(function(userPlants) {
+      res.json(userPlants);
+    })
+  })
+
+  app.post("/api/plants/:user", function(req,res){
+    db.
+  })
+
+
+
   // GET route for getting all of the todos
   app.get("/", function(req, res) {
       res.json('route hit')
