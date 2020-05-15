@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mwturner611/Hows_It_Growing#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
