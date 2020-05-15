@@ -38,7 +38,17 @@ module.exports = function(app) {
       })
   })
 
-
+// delete a plant from the plant table
+app.delete("/api/plant/:id", function(req,res){
+  db.plant.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(plant){
+      res.json(plant);
+    })
+})
 
   // GET route for getting all of the todos
   app.get("/", function(req, res) {
