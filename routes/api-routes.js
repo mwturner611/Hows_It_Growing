@@ -25,8 +25,17 @@ module.exports = function(app) {
     })
   })
 
-  app.post("/api/plants/:user", function(req,res){
-    db.
+  // add a plant to the plant table
+  app.post("/api/plant/:user", function(req,res){
+    console.log(req.body);
+    db.plant.create({
+      plantType: req.body.plantType,
+      nickName: req.body.nickName,
+      userId: req.params.user
+    })
+      .then(function(newPlant){
+        res.json(newPlant);
+      })
   })
 
 
