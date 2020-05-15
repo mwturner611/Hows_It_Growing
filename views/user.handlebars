@@ -1,0 +1,12 @@
+<h1>User's page with their plants listed</h1>
+
+
+{{!-- This code isn't picking up the sequelize  --}}
+{{#each plant}}
+    <li>
+        <p>{{this.plantType}}</p>
+        <p>{{this.nickName}}</p>
+    </li>
+{{/each}}
+
+

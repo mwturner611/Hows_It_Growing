@@ -50,17 +50,19 @@ app.delete("/api/plant/:id", function(req,res){
     })
 })
 
-  // GET route for getting all of the todos
-  app.get("/", function(req, res) {
-      res.json('route hit')
-    // findAll returns all entries for a table when used with no options
-    // db.Todo.findAll({}).then(function(dbTodo) {
-    //   // We have access to the todos as an argument inside of the callback function
-    //   res.json(dbTodo);
-    // });
-  });
+// Put route for updating a plant
+app.put("/api/plant/:id", function(req,res){
+  db.plant.update(req.body,{
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(plant){
+      res.json(plant);
+    })
+})
 
-  // ----------Testing route for creating new user.------------ (works through postman)
+  // creating a new user
   app.post('/api/users', function(req, res) {
     db.user.create({
       emailAddress: req.body.email,
