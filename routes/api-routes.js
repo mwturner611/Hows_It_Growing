@@ -22,7 +22,57 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // ----------Testing route for creating new user.------------ (works through postman)
+  // get a user and plants from DB
+  app.get("/api/plants/:user", function(req,res){
+    db.user.findOne({
+      where: {
+        id: req.params.user
+      },
+      include: [db.plant]
+    })
+    .then(function(userPlants) {
+      res.json(userPlants);
+    })
+  })
+
+  // add a plant to the plant table
+  app.post("/api/plant/:user", function(req,res){
+    console.log(req.body);
+    db.plant.create({
+      plantType: req.body.plantType,
+      nickName: req.body.nickName,
+      userId: req.params.user
+    })
+      .then(function(newPlant){
+        res.json(newPlant);
+      })
+  })
+
+// delete a plant from the plant table
+app.delete("/api/plant/:id", function(req,res){
+  db.plant.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(plant){
+      res.json(plant);
+    })
+})
+
+// Put route for updating a plant
+app.put("/api/plant/:id", function(req,res){
+  db.plant.update(req.body,{
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(plant){
+      res.json(plant);
+    })
+})
+
+  // creating a new user
   app.post('/api/users', function(req, res) {
     db.user.findAll({
       where: {

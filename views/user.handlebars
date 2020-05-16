@@ -1,0 +1,44 @@
+{{!-- Place holder for user page to test html routes --}}
+<h1>User's page with their plants listed</h1>
+
+
+{{!-- List out all the user's plants  --}}
+<h1>All plants</h1>
+<ul>
+{{#each plant}}
+    <li>
+        <p>Plant Type: {{this.dataValues.plantType}}</p>
+        <p>Nickname: {{this.dataValues.nickName}}</p>
+    </li>  
+{{/each}}
+</ul>
+
+{{!-- Return only watered plants  --}}
+<h1>Watered Plants</h1>
+<i class="fas fa-faucet"></i>
+
+
+<ul>
+{{#each plant}}
+  {{#if this.dataValues.watered}}
+    <li>
+        <p>Plant Type: {{this.dataValues.plantType}}</p>
+        <p>Nickname: {{this.dataValues.nickName}}</p>
+    </li>
+  {{/if}}  
+{{/each}}
+</ul>
+
+{{!-- List out all plants to be watered on Monday  --}}
+<h1>Monday's List</h1>
+<ul>
+{{#each plant}}
+  {{#if this.dataValues.monday}}
+    <li>
+        <p>Plant Type: {{this.dataValues.plantType}}</p>
+        <p>Nickname: {{this.dataValues.nickName}}</p>
+    </li>
+  {{/if}}  
+{{/each}}
+</ul>
+
