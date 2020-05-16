@@ -7,10 +7,20 @@
 
 // Requiring our models
 var db = require('../models');
+var path = require("path")
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+  // GET route for getting all of the users plants 
+  // app.get("/", function(req, res) {
+  //     res.json('route hit')
+  // });
+// Delete later. simply for testing
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
 
   // get a user and plants from DB
   app.get("/api/plants/:user", function(req,res){
@@ -64,12 +74,24 @@ app.put("/api/plant/:id", function(req,res){
 
   // creating a new user
   app.post('/api/users', function(req, res) {
-    db.user.create({
-      emailAddress: req.body.email,
-      password: req.body.password
+    db.user.findAll({
+      where: {
+        emailAddress: req.body.email,
+      }
+      
+      // password: req.body.password
     })
-    .then(function() {
-      res.json('new user created');
+    .then(function(user) {
+      console.log('existing user', user.data);
+      if (user.length === 0) {
+        db.user.create({
+          emailAddress: req.body.email,
+          password: req.body.password
+
+        })
+      }
+      // res.json('new user created');
+
     })
   });
 };
