@@ -15,10 +15,8 @@ module.exports = function(app) {
             }
         })
         .then(function(plant){
-            // res.json works fine in postman
-            // res.json(plant);
-
-            // res.render to the user handlebars returns 2 blank list items.  
+            
+            // open user page with the plant info  
             res.render('user',{plant: plant});
         })
     })
