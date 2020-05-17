@@ -1,44 +1,128 @@
-{{!-- Place holder for user page to test html routes --}}
-<h1>User's page with their plants listed</h1>
 
+<nav class='nav-extended'>
+        <div class='nav-wrapper green lighten-2'>
+            <div class='row'>
+                <div class='col s12'>
+                    <h6 class='nav-title'>How's It Growing?</h6>
+                    <ul id='nav-mobile' class='right'>
+                        <li><a href='#'>logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class='container'>
+        <div class='row'>
+            <div class='col m4 s6'>
+                <div class='section'></div>
+                <div class='section'></div>
+                <h6>Hello (user), how's it growing?</h6>
+                <br>
+                <h6>Time to check on those plants!</p>
+            </div>
+            <div class='col m4 s6'>
+                <form action='#'>
+                <div class='row'>
+                    <div class='input-field'>
+                        <input id='plant-name' type='text' class='validate'>
+                        <label class='active' for='plant-name'>Plant Name</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field'>
+                        <input id='nick-name' type='text' class='validate'>
+                        <label class='active' for='nick-name'>Nickname</label>
+                    </div>
+                </div>
+                <button class='btn green darken-2 waves-effect waves-light' type='submit' name='action'>Add Plant<i class='material-icons right'>spa</i></button>
+                </form>
+            </div>
+            <div class='col s4'>
+                
+            </div>
+        </div>
+    </div>
 
-{{!-- List out all the user's plants  --}}
-<h1>All plants</h1>
-<ul>
-{{#each plant}}
-    <li>
-        <p>Plant Type: {{this.dataValues.plantType}}</p>
-        <p>Nickname: {{this.dataValues.nickName}}</p>
-    </li>  
-{{/each}}
-</ul>
+    <div class='container'>
+        <div class='row'>
 
-{{!-- Return only watered plants  --}}
-<h1>Watered Plants</h1>
-<i class="fas fa-faucet"></i>
+                    <div class='card'>
+                        <div class='card-content center'>
+                            <h5>My Plants</h5>
+                        </div>
+                        <div class='card-tabs'>
+                            <ul class='tabs z-depth-1 tabs-fixed-width'>
+                                {{#each plant}}
+                                <li class='tab'><a class='active' href='#{{this.dataValues.nickName}}'>{{this.dataValues.nickName}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class='card-content grey lighten-4'>
 
+                          <ul>
+                              {{#each plant}}
+                              <div id='{{this.dataValues.nickName}}'>                              
+                                  <p>Plant Type: {{this.dataValues.plantType}}</p>
+                                  <p>Days to water:</p>
+                                  <form action='#'>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Sunday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Monday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Tuesday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Wednesday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Thursday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Friday</span>
+                                          </label>
+                                      </p>
+                                      <p>
+                                          <label>
+                                            <input type='checkbox' />
+                                            <span>Saturday</span>
+                                          </label>
+                                      </p>
+                                      <button class='btn green darken-2 waves-effect waves-light' type='submit' name='action'>Update Watering Days<i class='material-icons right'>send</i></button>
+                                  </form>
+                              </div>
+                              {{/each}}
+                          </ul>
+                            
+                        </div>
+                    </div>
 
-<ul>
-{{#each plant}}
-  {{#if this.dataValues.watered}}
-    <li>
-        <p>Plant Type: {{this.dataValues.plantType}}</p>
-        <p>Nickname: {{this.dataValues.nickName}}</p>
-    </li>
-  {{/if}}  
-{{/each}}
-</ul>
+        </div>
+    </div>
 
-{{!-- List out all plants to be watered on Monday  --}}
-<h1>Monday's List</h1>
-<ul>
-{{#each plant}}
-  {{#if this.dataValues.monday}}
-    <li>
-        <p>Plant Type: {{this.dataValues.plantType}}</p>
-        <p>Nickname: {{this.dataValues.nickName}}</p>
-    </li>
-  {{/if}}  
-{{/each}}
-</ul>
+<!-- ADD THIS TO JS FILE ONCE CONNECTED SUCCESSFULLY -->
+<script>
+    var el = document.querySelector('.tabs');
+    var instance = M.Tabs.init(el, {});
+</script>
 
