@@ -18,9 +18,9 @@ module.exports = function(app) {
   //     res.json('route hit')
   // });
 // Delete later. simply for testing
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
+  // app.get("/", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login.html"));
+  // });
 
   // get a user and plants from DB
   app.get("/api/plants/:user", function(req,res){
@@ -82,7 +82,8 @@ app.put("/api/plant/:id", function(req,res){
       // password: req.body.password
     })
     .then(function(user) {
-      console.log('existing user', user.data);
+      res.json(user);
+      console.log('existing user', user);
       if (user.length === 0) {
         db.user.create({
           emailAddress: req.body.email,

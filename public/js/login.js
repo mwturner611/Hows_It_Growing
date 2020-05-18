@@ -11,9 +11,12 @@ $("#login-btn").click(function(){
         password: userPassword 
     };
     $.post("/api/users", userData)
-    .then(function(){
-            console.log("user created", userData)
-        })
+    .then(function(res){
+    console.log(res)
+     console.log("user created", userData)
+    window.location.replace(`/user/${res[0].id}`);
+    });
+    
     console.log(userEmail);
    
 });
