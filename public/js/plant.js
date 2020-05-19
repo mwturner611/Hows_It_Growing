@@ -3,7 +3,8 @@ $(document).ready(function(){
     // activate tabs on the listed plant card
     $('.tabs').tabs();
 
-    $('#watered').on('click', function(e) {
+    // Changing the watered state of each plant.
+    $('.watered').on('click', function(e) {
         e.preventDefault();
         
         var id = $(this).data('id');
@@ -21,18 +22,6 @@ $(document).ready(function(){
             }
         );
     });
-
-    var getWateredState = function() {
-        var waterbtn = $('#watered');
-
-        if(waterbtn.data('watered')) {
-            $('#watercan-icon').removeClass('hide');
-        } else {
-            $('#watercan-icon').addClass('hide');
-        }
-    };
-
-    getWateredState();
 
 });
 

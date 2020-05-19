@@ -19,3 +19,12 @@
     max-width: 50%;
     height: auto;
 }
+
+/* Hiding or showing the watering can icon */
+.hidden{
+    visibility: hidden;
+}
+
+#shown{
+    visibility: visible;
+}
