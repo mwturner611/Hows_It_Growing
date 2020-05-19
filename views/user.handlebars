@@ -40,7 +40,7 @@
                         <label class='active' for='nick-name'>Nickname</label>
                     </div>
                 </div>
-                <button class='btn green darken-2 waves-effect waves-light' type='submit' name='action'>Add Plant<i class='material-icons right'>spa</i></button>
+                <button class='btn green darken-2 waves-effect waves-light' id='addPlant-btn' type='submit' name='action'>Add Plant<i class='material-icons right'>spa</i></button>
                 </form>
             </div>
             <div class='col l1 hide-on-med-and-down'>
@@ -75,7 +75,7 @@
                                       <form action='#'>
                                           <p>
                                               <label>
-                                                <input type='checkbox'  
+                                                <input type='checkbox' id='sun-check'
                                                     {{#if this.dataValues.sunday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -85,7 +85,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='mon-check' 
                                                     {{#if this.dataValues.monday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -95,7 +95,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='tue-check'
                                                     {{#if this.dataValues.tuesday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -105,7 +105,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='wed-check' 
                                                     {{#if this.dataValues.wednesday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -115,7 +115,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='thur-check' 
                                                     {{#if this.dataValues.thursday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -125,7 +125,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='fri-check'
                                                     {{#if this.dataValues.friday}}  
                                                     checked='checked'
                                                     {{/if}}
@@ -135,7 +135,7 @@
                                           </p>
                                           <p>
                                               <label>
-                                                <input type='checkbox' 
+                                                <input type='checkbox' id='sat-check'
                                                     {{#if this.dataValues.saturday}}  
                                                     checked='checked'
                                                     {{/if}}
