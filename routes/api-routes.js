@@ -35,18 +35,6 @@ module.exports = function(app) {
     })
   })
 
-  // // get a single plant from the table
-  // app.get("/api/plant/:id", function(req,res){
-  //   db.plant.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   })
-  //   .then(function(userPlants) {
-  //     res.json(userPlants);
-  //   })
-  // })
-
   // add a plant to the plant table
   app.post("/api/plant/:user", function(req,res){
     console.log(req.body);

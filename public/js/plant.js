@@ -15,24 +15,24 @@ $(document).ready(function(){
             type: 'PUT',
             data: newWateredState
         }).then(
-            function() {
-            //   $('#watercan-icon').removeClass('hide');
-            getWateredState(id)
+            function(){
+                location.reload();
+                console.log('success')
             }
         );
     });
 
-    // var getWateredState = function(id) {
+    var getWateredState = function() {
+        var waterbtn = $('#watered');
 
-    //     $.ajax('api/plant/' + id, {
-    //         type: 'GET',
-    //         dataType: 'json'
-    //     }).then(
-    //         function(data) {
-    //             console.log(data);
-    //         }
-    //     );
-    // };
+        if(waterbtn.data('watered')) {
+            $('#watercan-icon').removeClass('hide');
+        } else {
+            $('#watercan-icon').addClass('hide');
+        }
+    };
+
+    getWateredState();
 
 });
 
