@@ -26,29 +26,32 @@ $(document).ready(function(){
         );
     });
 
-    $('#add-plant').on('submit', function(event) {
+    $('#addPlant-btn').on('click', function(event) {
         event.preventDefault();
+        var id = $(this).data('id');
         console.log('clicked')
-        // var plantTypeInput = $('#plant-type');
-        // var nickNameInput = $('#nick-name');
+        var plantTypeInput = $('#plant-type');
+        var nickNameInput = $('#nick-name');
 
-        // // Won't submit if fields are empty
-        // if (!plantTypeInput.val().trim() || !nickNameInput.val().trim()) {
-        //     return;
-        //   };
-        // // Create new object from inputs that query will expect
-        // var newPlant = {
-        //     plantType: plantTypeInput.val().trim(),
-        //     nickName: nickNameInput.val().trim(),
-        //     userId: req.params.user
-        // };
-        // console.log('plant grabbed', newPlant);
-        // console.log('working??');
-        // $.post("/api/plant/:user", newPlant)
-        // .then(function(res){
-        // console.log(res)
-        //  console.log("plant added", newPlant)
-        // });
+        // Won't submit if fields are empty
+        if (!plantTypeInput.val().trim() || !nickNameInput.val().trim()) {
+            return;
+          };
+        // Create new object from inputs that query will expect
+        var newPlant = {
+            plantType: plantTypeInput.val().trim(),
+            nickName: nickNameInput.val().trim(),
+            userId: id
+        };
+        console.log('plant grabbed', newPlant);
+        console.log('working??');
+        $.post("/api/plant/" +id , newPlant)
+        .then(function(res){
+        console.log(res)
+        console.log("plant added", newPlant)
+        location.reload();
+        console.log('worked')
+        });
 
         
     });

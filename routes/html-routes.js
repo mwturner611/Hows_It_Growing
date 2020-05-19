@@ -16,10 +16,14 @@ module.exports = function(app) {
             include: [db.plant]
           })
         .then(function(data){
+            console.log('user data', data)
+            
             
             
             // open user page with the plant info  
-            res.render('user',{plant: data.plants, user: data.dataValues.emailAddress});
+            // res.json(data)
+            res.render('user',{plant: data.plants, user: data.dataValues.emailAddress, id: data.dataValues.id});
+            // if(err) throw err;
         })
     })
 };
