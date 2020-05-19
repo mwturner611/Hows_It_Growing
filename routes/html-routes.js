@@ -9,15 +9,16 @@ module.exports = function(app) {
 
     // open the user's page with their plants displayed
     app.get('/user/:id', function(req,res) {
-        db.plant.findAll({
+        db.user.findOne({
             where: {
-                userId: req.params.id
-            }
-        })
-        .then(function(plant){
+              id: req.params.id
+            },
+            include: [db.plant]
+          })
+        .then(function(data){
             
             // open user page with the plant info  
-            res.render('user',{plant: plant});
+            res.render('user',{plant: data.plants, user: data.dataValues.emailAddress});
         })
     })
 };
