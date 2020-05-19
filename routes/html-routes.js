@@ -17,6 +17,7 @@ module.exports = function(app) {
           })
         .then(function(data){
             
+            
             // open user page with the plant info  
             res.render('user',{plant: data.plants, user: data.dataValues.emailAddress});
         })
