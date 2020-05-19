@@ -1,7 +1,21 @@
-h1{
-    color: blue;
+/* Set size for the title logo */
+.logo{
+    width: 40px;
+    height: auto;
 }
-.btn {
-    margin: 15px;
-    padding: 8px;
+
+/* Font for the page */
+.font{
+    font-family: 'Comfortaa', cursive;
+}
+
+/* Make icon attribute smaller */
+.icon-attr{
+    font-size: 2px;
+}
+
+/* Sizing for plant icon */
+.plant-icon{
+    max-width: 50%;
+    height: auto;
 }
