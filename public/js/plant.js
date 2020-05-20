@@ -57,7 +57,18 @@ $(document).ready(function(){
     });
 
     // Add listener for water day update 
-    
+    $('.water-update').on('click', function(event) {
+        event.preventDefault();
+        var id=$(this).data('id');
+        var checked =$('#' + id + ' p label input:checked');
+        console.log('clicked');
+        console.log(id);
+        console.log('checked days', checked);
+        // create object to send to put 
+        // var waterDays {
+        //     sunday: 
+        // }
+    })
 
     
         
