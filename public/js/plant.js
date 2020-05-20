@@ -25,7 +25,7 @@ $(document).ready(function(){
             }
         );
     });
-
+    // Initiate event listener for add button
     $('#addPlant-btn').on('click', function(event) {
         event.preventDefault();
         var id = $(this).data('id');
@@ -48,24 +48,16 @@ $(document).ready(function(){
         $.post("/api/plant/" +id , newPlant)
         .then(function(res){
         console.log(res)
-        console.log("plant added", newPlant)
         location.reload();
-        console.log('worked')
-        });
-
         
+        });
     });
 
-    // Defining function to handle post 
-    // function submitPlant(Plants) {
-    //     $.post("/api/plant/:user", Plants)
-    //     .then(function(res){
-    //     console.log(res)
-    //      console.log("plant added", newPlant)
-    //     });
+    // Add listener for water day update 
+    
+
+    
         
-        
-    //   };
 
 
 
