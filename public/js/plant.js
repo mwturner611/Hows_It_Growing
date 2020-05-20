@@ -1,10 +1,12 @@
 
 $(document).ready(function(){
    
-   
 
     // activate tabs on the listed plant card
-    $('.tabs').tabs();
+    if (document.querySelector('.tab') !== null){
+        $('.tabs').tabs();
+    }
+    
 
     // Changing the watered state of each plant.
     $('.watered').on('click', function(e) {
@@ -45,8 +47,8 @@ $(document).ready(function(){
         };
         console.log('plant grabbed', newPlant);
         console.log('working??');
-        $.ajax("/api/plant/" +id , {
-            type: "POST",
+        $.ajax('/api/plant/' +id , {
+            type: 'POST',
             data: newPlant
         })
         .then(function(res){
@@ -60,14 +62,35 @@ $(document).ready(function(){
     $('.water-update').on('click', function(event) {
         event.preventDefault();
         var id=$(this).data('id');
-        var checked =$('#' + id + ' p label input:checked');
-        console.log('clicked');
-        console.log(id);
-        console.log('checked days', checked);
+        
+        var sun = $(`.sunCheck${id}`).is(':checked');
+        var mon = $(`.monCheck${id}`).is(':checked');
+        var tue = $(`.tueCheck${id}`).is(':checked');
+        var wed = $(`.wedCheck${id}`).is(':checked');
+        var thu = $(`.thuCheck${id}`).is(':checked');
+        var fri = $(`.friCheck${id}`).is(':checked');
+        var sat = $(`.satCheck${id}`).is(':checked');
+
         // create object to send to put 
-        // var waterDays {
-        //     sunday: 
-        // }
+        var waterDays = {
+            sunday: sun,
+            monday: mon,
+            tuesday: tue,
+            wednesday: wed,
+            thursday: thu,
+            friday: fri,
+            saturday: sat
+        };
+
+        $.ajax('/api/plant/' + id, {
+            type: 'PUT',
+            data: waterDays
+        }).then(
+            function(){
+                location.reload();
+                console.log('success')
+            }
+        );
     })
 
     
