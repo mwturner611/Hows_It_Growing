@@ -61,10 +61,13 @@ $(document).ready(function(){
         console.log('clicked');
         console.log(id);
         console.log('checked days', checked);
+        // create object to send to put 
+        // var waterDays {
+        //     sunday: 
+        // }
     })
 
-    // var checked =$(id + ':input:checked');
-    //     var id=$(this).data('id');
+    
         
 
 
