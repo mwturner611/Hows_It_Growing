@@ -45,7 +45,10 @@ $(document).ready(function(){
         };
         console.log('plant grabbed', newPlant);
         console.log('working??');
-        $.post("/api/plant/" +id , newPlant)
+        $.ajax("/api/plant/" +id , {
+            type: "POST",
+            data: newPlant
+        })
         .then(function(res){
         console.log(res)
         location.reload();
