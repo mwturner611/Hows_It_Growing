@@ -4,15 +4,16 @@ const blobStream  = require('blob-stream');
 //Create a document
 const doc = new PDFDocument;
 
-const info = wc;
+//Variable that holds plant data
+const info = seeds.sql;
 
 //Pipe PDF to a blob
 const stream = doc.pipe(blobStream());
 
-// draw some text
+//Insert plant data into PDF
 doc.fontSize(25).text(info);
 
-// Add different margins on each side
+//Add different margins on each side
 doc.addPage({
   margins: {
     top: 50,
@@ -22,13 +23,11 @@ doc.addPage({
   }
 });
 
-// get a blob when you're done
+//Get a blob
 doc.end();
 stream.on('finish', function() {
-  // get a blob you can do whatever you like with
-  const blob = stream.toBlob('application/pdf');
 
-  // or get a blob URL for display in the browser
+  //Display blob in browser
   const url = stream.toBlobURL('application/pdf');
   iframe.src = url;
 });
