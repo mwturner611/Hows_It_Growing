@@ -16,7 +16,7 @@ This app allows you to give your plants the TLC they deserve (and not die)
 ## Technology
 Mysql, Sequelize, Node.JS, Handlebars-express, Express, Heroku, JQuery, JavaScript, Materialize, HTML, CSS, AJAX, pdfkit and bcrypt
 
-## Table of Contents (Optional)
+## Table of Contents
 * [Top of Page](#description)
 * [Technologies Used](#technologies)
 * [Usage](#usage)

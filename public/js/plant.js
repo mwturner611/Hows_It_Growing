@@ -93,7 +93,21 @@ $(document).ready(function(){
         );
     })
 
-    
+    // delete a plant
+    $('.delete').on('click', function(event){
+        event.preventDefault();
+        var id=$(this).data('id');
+
+        $.ajax('/api/plant/' + id, {
+            type: 'DELETE',
+            
+        }).then(
+            function(){
+                location.reload();
+                console.log('success');
+            }
+        )
+    })
         
 
 
