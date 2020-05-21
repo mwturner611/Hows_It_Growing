@@ -1,4 +1,8 @@
-
+<div class='container'>
+      <div class='row center'>
+        <button class='btn green darken-2 waves-effect waves-light' data-id='{{id}}' id='userPage' type='submit' name='action'>Go Home<i class='material-icons right'>home</i></button>
+      </div>
+</div>
 <div class='container'>
     <div class='row center'>
         <div class='col s12'>
@@ -8,47 +12,65 @@
                         <table>
                             
                             <tbody>
+                              <h4>Keep 'em Growing</h4>
+                              <h5>Water list <i class="fas fa-hand-holding-water"></i></h5>
                               <tr>
                                 <td><h5>Sunday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.sunday}}
+                                <br>
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
+                    
                               </tr>
                               <tr>
                                 <td><h5>Monday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.monday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                               <tr>
                                 <td><h5>Tuesday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.tuesday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                               <tr>
                                 <td><h5>Wednesday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.wednesday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                               <tr>
                                 <td><h5>Thursday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.thursday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                               <tr>
                                 <td><h5>Friday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.friday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                               <tr>
                                 <td><h5>Saturday</h5></td>
-                                <td>plant</td>
-                                <td>plant</td>
-                                <td>plant</td>
+                                {{#each plant}}
+                                {{#if this.dataValues.saturday}}
+                                <td>{{this.dataValues.nickName}}</td>
+                                {{/if}}
+                                {{/each}}
                               </tr>
                             </tbody>
                           </table>
@@ -57,5 +79,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class='container'>
+      <div class='row center'>
+        <button class='btn green darken-2 waves-effect waves-light' data-id='{{id}}' id='userPage' type='submit' name='action'>Go Home<i class='material-icons right'>home</i></button>
+      </div>
 </div>
 

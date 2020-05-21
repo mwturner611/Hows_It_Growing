@@ -27,6 +27,8 @@ $(document).ready(function(){
             }
         );
     });
+
+    
     // Initiate event listener for add button
     $('#addPlant-btn').on('click', function(event) {
         event.preventDefault();
@@ -58,7 +60,7 @@ $(document).ready(function(){
         });
     });
 
-    // add listener for creating an html page
+    // add listener for creating plant list page
     $('#print').on('click', function(event){
         event.preventDefault();
         var id = $(this).data('id');
@@ -69,6 +71,20 @@ $(document).ready(function(){
         .then(function(res){
             console.log(res);
             window.location.replace(`/user/list/${id}`)
+        })
+    })
+
+    // add listener for creating plant list page
+    $('#userPage').on('click', function(event){
+        event.preventDefault();
+        var id = $(this).data('id');
+        
+        $.ajax('/user/' +id, {
+            type: 'GET',
+        })
+        .then(function(res){
+            console.log(res);
+            window.location.replace(`/user/${id}`)
         })
     })
 
