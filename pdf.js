@@ -4,13 +4,23 @@ const blobStream  = require('blob-stream');
 //Create a document
 const doc = new PDFDocument;
 
-const info = 
+const info = wc;
 
 //Pipe PDF to a blob
 const stream = doc.pipe(blobStream());
 
 // draw some text
-doc.fontSize(25).text('
+doc.fontSize(25).text(info);
+
+// Add different margins on each side
+doc.addPage({
+  margins: {
+    top: 50,
+    bottom: 50,
+    left: 72,
+    right: 72
+  }
+});
 
 // get a blob when you're done
 doc.end();
