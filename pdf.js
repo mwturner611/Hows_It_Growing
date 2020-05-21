@@ -4,8 +4,13 @@ const blobStream  = require('blob-stream');
 //Create a document
 const doc = new PDFDocument;
 
+const info = 
+
 //Pipe PDF to a blob
 const stream = doc.pipe(blobStream());
+
+// draw some text
+doc.fontSize(25).text('
 
 // get a blob when you're done
 doc.end();
