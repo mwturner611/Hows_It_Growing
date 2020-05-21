@@ -58,6 +58,20 @@ $(document).ready(function(){
         });
     });
 
+    // add listener for creating an html page
+    $('#print').on('click', function(event){
+        event.preventDefault();
+        var id = $(this).data('id');
+        
+        $.ajax('/user/list/' +id, {
+            type: 'GET',
+        })
+        .then(function(res){
+            console.log(res);
+            window.location.replace(`/user/list/${id}`)
+        })
+    })
+
     // Add listener for water day update 
     $('.water-update').on('click', function(event) {
         event.preventDefault();

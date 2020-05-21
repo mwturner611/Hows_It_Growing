@@ -26,4 +26,24 @@ module.exports = function(app) {
             // if(err) throw err;
         })
     })
+
+    // open the user's printable page with their plants displayed
+    app.get('/user/list/:id', function(req,res) {
+        db.user.findOne({
+            where: {
+              id: req.params.id
+            },
+            include: [db.plant]
+          })
+        .then(function(data){
+            console.log('user data', data)
+            
+            
+            
+            // open user page with the plant info  
+            // res.json(data)
+            res.render('list',{plant: data.plants, user: data.dataValues.emailAddress, id: data.dataValues.id});
+            // if(err) throw err;
+        })
+    })
 };
