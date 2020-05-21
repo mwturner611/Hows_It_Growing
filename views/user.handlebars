@@ -5,7 +5,7 @@
                 <div class='col s12'>
                     <h6 class='nav-title font center-align'><img class='logo' src='/images/nature.png' alt='title logo plant'>   How's It Growing?</h6>
                     <ul id='nav-mobile' class='right'>
-                        <li><a href='#'>logout</a></li>
+                        <li><a href='/'>logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -148,6 +148,9 @@
                                           <br><hr>
                                           <p>Have you watered {{this.dataValues.nickName}} today?</p>
                                           <button data-watered={{this.dataValues.watered}} data-id='{{this.dataValues.id}}' class='watered btn green darken-2 waves-effect waves-light' name='action'>Watered?<i class='material-icons right'>opacity</i></button>
+
+                                          <br><hr>
+                                          <a data-id='{{this.dataValues.id}}' class="btn-floating btn-small waves-effect waves-light red delete"><i class="material-icons">delete_forever</i></a>
                                       </form>
                                   </div>
                                 
