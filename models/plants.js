@@ -1,6 +1,6 @@
 // Plants model.
 module.exports = function(sequelize, DataTypes) {
-    var Plants = sequelize.define("plant", {
+    var Plants = sequelize.define('plant', {
         plantType: {
         type: DataTypes.STRING,
         allowNull: false,
