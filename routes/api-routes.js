@@ -7,23 +7,23 @@
 
 // Requiring our models
 var db = require('../models');
-var path = require("path")
+var path = require('path')
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   // GET route for getting all of the users plants 
-  // app.get("/", function(req, res) {
+  // app.get('/', function(req, res) {
   //     res.json('route hit')
   // });
 // Delete later. simply for testing
-  // app.get("/", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
+  // app.get('/', function(req, res) {
+  //   res.sendFile(path.join(__dirname, '../public/login.html'));
   // });
 
   // get a user and plants from DB
-  app.get("/api/plants/:user", function(req,res){
+  app.get('/api/plants/:user', function(req,res){
     db.user.findOne({
       where: {
         id: req.params.user
@@ -36,7 +36,7 @@ module.exports = function(app) {
   })
 
   // add a plant to the plant table
-  app.post("/api/plant/:user", function(req,res){
+  app.post('/api/plant/:user', function(req,res){
     console.log(req.body);
     db.plant.create({
       plantType: req.body.plantType,
@@ -49,7 +49,7 @@ module.exports = function(app) {
   })
 
 // delete a plant from the plant table
-app.delete("/api/plant/:id", function(req,res){
+app.delete('/api/plant/:id', function(req,res){
   db.plant.destroy({
     where: {
       id: req.params.id
@@ -61,7 +61,7 @@ app.delete("/api/plant/:id", function(req,res){
 })
 
 // Put route for updating a plant
-app.put("/api/plant/:id", function(req,res){
+app.put('/api/plant/:id', function(req,res){
   db.plant.update(req.body,{
     where: {
       id: req.params.id
